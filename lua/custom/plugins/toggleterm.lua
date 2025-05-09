@@ -2,8 +2,8 @@ return {
   'akinsho/toggleterm.nvim',
   version = '*',
   opts = {
-    size = 20,
-    open_mapping = [[<c-j>]], -- keymap
+    size = 16,
+    open_mapping = [[<c-t>]], -- keymap
     hide_numbers = true,
     shade_filetypes = {},
     shade_terminals = true,

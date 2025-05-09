@@ -6,6 +6,11 @@ local keymap = vim.keymap.set
 --  INFO: (keymaps padrão)
 --  ctrl + h -> janela da esquerda (neotree)
 --  ctrl + l -> janela da direita (código)
+--  ctrl + k -> janela de cima (código)
+--  ctrl + j -> janela de baixo (terminal)
+
+-- desativar keymaps
+keymap('n', '<C-t>', '<Nop>') -- desativa o ctrl + t padrão (o toggleterm foi configurado pra usar ele no lugar)
 
 -- ctrl + a pra selecionar o arquivo inteiro
 keymap('n', '<C-a>', 'ggVG', { noremap = true })
