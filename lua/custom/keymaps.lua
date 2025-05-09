@@ -1,6 +1,11 @@
 local keymap = vim.keymap.set
 
---  TODO: ctrl + d
+--  TODO:
+--  ctrl + d
+
+--  INFO: (keymaps padrão)
+--  ctrl + h -> janela da esquerda (neotree)
+--  ctrl + l -> janela da direita (código)
 
 -- ctrl + a pra selecionar o arquivo inteiro
 keymap('n', '<C-a>', 'ggVG', { noremap = true })
