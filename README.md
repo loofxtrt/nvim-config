@@ -1,5 +1,4 @@
 ![ubuntu drink](ubuntu.jpg)
 bebe o ubuntu
 
-distro: kickstart.nvim
-fonte: hack nerd font
+distro: kickstart.nvim<br>fonte: hack nerd font
