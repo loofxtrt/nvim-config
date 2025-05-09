@@ -19,11 +19,17 @@ keymap('v', '<C-v>', '"+p', { noremap = true }) -- modo visual
 keymap('n', '<C-x>', '"+d', { noremap = true })
 keymap('v', '<C-x>', '"+d', { noremap = true }) -- modo visual
 
--- ctrl + shift + setas
+-- ctrl + shift + setas (modo normal)
 keymap('n', '<C-S-Right>', 'vaw', { noremap = true }) -- seleciona palavra na direita
 keymap('n', '<C-S-Left>', 'vaw', { noremap = true }) -- seleciona palavra na esquerda
 keymap('n', '<C-S-Up>', 'vaw', { noremap = true }) -- seleciona palavra em baixo
 keymap('n', '<C-S-Down>', 'vaw', { noremap = true }) -- seleciona palavra em cima
+
+-- ctrl + shift + setas (modo insert)
+keymap('i', '<C-S-Right>', '<Esc>vawi', { noremap = true }) -- seleciona palavra na direita
+keymap('i', '<C-S-Left>', '<Esc>vawi', { noremap = true }) -- seleciona palavra na esquerda
+keymap('i', '<C-S-Up>', '<Esc>vawi', { noremap = true }) -- seleciona palavra em baixo
+keymap('i', '<C-S-Down>', '<Esc>vawi', { noremap = true }) -- seleciona palavra em cima
 
 -- ctrl + s pra salvar
 keymap('n', '<C-s>', ':w<CR>', { noremap = true })
