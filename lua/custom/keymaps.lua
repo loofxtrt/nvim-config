@@ -3,11 +3,39 @@ local keymap = vim.keymap.set
 --  TODO:
 --  ctrl + d
 
+--  FIX:
+--  ctrl + shift + setas não seleciona a palavra na qual o cursor estava quando o comando foi chamado
+
 --  INFO: (keymaps padrão)
 --  ctrl + h -> janela da esquerda (neotree)
 --  ctrl + l -> janela da direita (código)
 --  ctrl + k -> janela de cima (código)
 --  ctrl + j -> janela de baixo (terminal)
+
+-- functions
+local no_break_next_word = function()
+  -- função que permite ctrl + setas pra direita e esquerda não façam o cursor pular pra próxima linha ao chegar na última palavra
+  -- ao invés disso, o cursor para depois da última palavra, apenas parando de se mover caso não tenha mais caracteres no lado direito dele
+
+  local line = vim.fn.getline '.'
+  local col = vim.fn.col '.' -- posição atual do cursor (1-based)
+  local len = #line
+
+  if col > len then
+    return
+  end -- já tá no fim da linha
+
+  local after_cursor = line:sub(col)
+  local _, word_end = after_cursor:find('^%W*(%w+)', 1) -- pega a próxima palavra
+
+  if word_end then
+    local new_col = col + word_end -- posição do fim da palavra
+    if new_col > len then
+      new_col = len + 1 -- garante que pare no fim da linha
+    end
+    vim.api.nvim_win_set_cursor(0, { vim.fn.line '.', new_col })
+  end
+end
 
 -- desativar keymaps
 keymap('n', '<C-t>', '<Nop>') -- desativa o ctrl + t padrão (o toggleterm foi configurado pra usar ele no lugar)
@@ -36,7 +64,7 @@ keymap('n', '<C-S-Up>', 'vaw', { noremap = true }) -- seleciona palavra em baixo
 keymap('n', '<C-S-Down>', 'vaw', { noremap = true }) -- seleciona palavra em cima
 
 -- ctrl + shift + setas (modo insert)
-keymap('i', '<C-S-Right>', '<Esc>vawi', { noremap = true }) -- seleciona palavra na direita
+keymap('i', '<C-Right>', no_break_next_word, { noremap = true }) -- seleciona palavra na direita
 keymap('i', '<C-S-Left>', '<Esc>vawi', { noremap = true }) -- seleciona palavra na esquerda
 keymap('i', '<C-S-Up>', '<Esc>vawi', { noremap = true }) -- seleciona palavra em baixo
 keymap('i', '<C-S-Down>', '<Esc>vawi', { noremap = true }) -- seleciona palavra em cima
