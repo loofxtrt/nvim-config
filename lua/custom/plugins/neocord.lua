@@ -3,7 +3,7 @@ return {
   event = 'VeryLazy',
   config = function()
     require('neocord').setup {
-      -- Aqui você pode adicionar configurações personalizadas, se necessário
+      -- adicionar configurações aqui
     }
   end,
 }

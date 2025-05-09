@@ -3,7 +3,7 @@ return {
   version = '*',
   opts = {
     size = 16,
-    open_mapping = [[<c-t>]], -- keymap
+    open_mapping = [[<c-t>]], -- keymap pra abrir o terminal
     hide_numbers = true,
     shade_filetypes = {},
     shade_terminals = true,

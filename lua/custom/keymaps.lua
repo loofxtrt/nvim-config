@@ -49,7 +49,7 @@ keymap('i', '<C-a>', '<Esc>ggVG', { noremap = true }) -- modo insert
 keymap('n', '<C-c>', '"+y', { noremap = true })
 keymap('v', '<C-c>', '"+y', { noremap = true }) -- modo visual
 
--- ctrl + v pra colar (dentro do Vim)
+-- ctrl + shift + v pra colar (dentro do Vim)
 keymap('n', '<C-v>', '"+p', { noremap = true })
 keymap('v', '<C-v>', '"+p', { noremap = true }) -- modo visual
 
@@ -71,11 +71,12 @@ keymap('i', '<C-S-Down>', '<Esc>vawi', { noremap = true }) -- seleciona palavra 
 
 -- ctrl + s pra salvar
 keymap('n', '<C-s>', ':w<CR>', { noremap = true })
-keymap('i', '<C-s>', '<Esc>:w<CR>a', { noremap = true })
+keymap('i', '<C-s>', '<Esc>:w<CR>a', { noremap = true }) -- modo insert
 
 -- backspace
-keymap('v', '<BS>', '"_d', { noremap = true })
-keymap('n', '<BS>', '"_d', { noremap = true })
+keymap('v', '<BS>', '"_d', { noremap = true }) -- faz backspace deletar a seleção atual
+keymap('n', '<BS>', '"_d', { noremap = true }) -- modo normal
+
 keymap('i', '<C-h>', '<C-w>', { noremap = true }) -- ctrl + backspace apaga a palavra inteira atrás do cursor
 
 -- undo, redo
