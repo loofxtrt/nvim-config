@@ -1,10 +1,10 @@
 local keymap = vim.keymap.set
 
 --  TODO:
---  ctrl + d
 
 --  FIX:
 --  ctrl + shift + setas não seleciona a palavra na qual o cursor estava quando o comando foi chamado
+--  ctrl + d
 
 --  INFO: (keymaps padrão)
 --  ctrl + h -> janela da esquerda (neotree)
