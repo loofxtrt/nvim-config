@@ -434,7 +434,7 @@ return {
 
   },
 
-  { import = 'plugins' },
+  --{ import = 'plugins' },
 
 }, {
   ui = {

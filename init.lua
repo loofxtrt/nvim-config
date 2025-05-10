@@ -8,4 +8,19 @@ if vim.fn.filereadable(keymaps_path) == 1 then
 end
 
 -- lazy.nvim
-require('manager')
+-- clonar o repositório do lazy.nvim
+local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
+  local out = vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
+  if vim.v.shell_error ~= 0 then
+    error('Error cloning lazy.nvim:\n' .. out)
+  end
+end ---@diagnostic disable-next-line: undefined-field
+vim.opt.rtp:prepend(lazypath)
+
+-- carregar o lazy.nvim com os plugins e as configurações de cada um
+require('lazy').setup({
+  require('kickstart.default-setup'), -- importar os plugins nativos do kickstart.nvim, por eles serem escritos num .lua só, o require é o suficiente
+  { import = 'plugins' }, -- importar todos os arquivos .lua (cada .lua é um plugin) do diretório de plugins
+})
