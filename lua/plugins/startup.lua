@@ -7,6 +7,6 @@ return {
   },
   config = function()
     -- importar o plugin startup e rodar o setup com o tema custom
-    require('startup').setup(require 'custom.themes.startup.main')
+    require('startup').setup(require 'startup.main')
   end,
 }
