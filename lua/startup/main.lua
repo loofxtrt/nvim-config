@@ -120,6 +120,8 @@ local settings = {
       { ' File Browser', 'Telescope file_browser', '<leader>fb' },
       { ' Colorschemes', 'Telescope colorscheme', '<leader>cs' },
       { ' New File', "lua require'startup'.new_file()", '<leader>nf' },
+      { ' Settings', 'edit ~/.config/nvim/init.lua | Neotree', '<leader>ev' },
+      { '󰘙 Edit startup', 'edit ~/.config/nvim/lua/startup/main.lua', '<leader>ep' },
     },
     highlight = 'String',
     default_color = '',
